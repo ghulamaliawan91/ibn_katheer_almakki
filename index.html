@@ -2,426 +2,441 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>مركز ابن كثير - الشامل</title>
-    
-    <!-- فونٹس اور آئیکنز -->
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>مركز ابن كثير</title>
+   
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
     <style>
         :root {
-            --primary: #1e3a8a; /* نیلا */
-            --secondary: #d97706; /* سنہرا */
-            --success: #10b981; /* سبز */
-            --danger: #ef4444; /* سرخ */
-            --bg: #f8fafc;
-            --text: #1f2937;
-            --white: #ffffff;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --radius: 12px;
+            --primary: #1e40af; --primary-dark: #1e3a8a; --accent: #d97706;
+            --success: #059669; --danger: #dc2626; --bg: #f3f4f6;
+            --card-bg: #ffffff; --text: #1f2937; --text-light: #6b7280;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Tajawal', sans-serif; }
-        body { background-color: var(--bg); color: var(--text); line-height: 1.6; padding-bottom: 60px; }
-        h1, h2, h3, .logo { font-family: 'Amiri', serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: transparent; }
+        body { font-family: 'Tajawal', sans-serif; background-color: var(--bg); color: var(--text); padding-bottom: 90px; }
+        h1, h2, h3 { font-family: 'Amiri', serif; }
         
-        /* نیویگیشن باٹنز (پائینڈیونسٹائل) */
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: var(--white);
-            display: flex;
-            justify-content: space-around;
-            padding: 10px 0;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
-            z-index: 1000;
-        }
-        .nav-item {
-            text-align: center;
-            color: #9ca3af;
-            font-size: 0.75rem;
-            cursor: pointer;
-            flex: 1;
-        }
-        .nav-item i { font-size: 1.2rem; margin-bottom: 4px; display: block; }
-        .nav-item.active { color: var(--primary); font-weight: bold; }
-
-        /* سیکشنز کا نظم */
-        .page-section { display: none; padding: 15px; padding-bottom: 80px; animation: fadeIn 0.3s; }
+        .main-header { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: white; padding: 20px; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px; box-shadow: var(--shadow); display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.3rem; font-weight: bold; display: flex; align-items: center; gap: 10px; }
+        
+        .page-section { display: none; padding: 20px; animation: slideUp 0.4s ease-out; }
         .page-section.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* ہیڈر */
-        .main-header {
-            background: var(--primary);
-            color: white;
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: var(--shadow);
-        }
-        .logo { font-size: 1.2rem; display: flex; align-items: center; gap: 8px; }
-        .bahrain-flag { width: 25px; height: 25px; border-radius: 50%; border: 1px solid white; }
-
-        /* کارڈز */
-        .card { background: white; padding: 20px; border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 15px; border-right: 4px solid var(--primary); }
+        .card { background: var(--card-bg); padding: 20px; border-radius: 16px; box-shadow: var(--shadow); margin-bottom: 20px; }
         
-        /* لنک بٹنز (موابطیل) */
-        .contact-link {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px;
-            background: #f9fafb;
-            border-radius: 8px;
-            text-decoration: none;
-            color: var(--text);
-            margin-bottom: 10px;
-            transition: 0.2s;
-            border: 1px solid #e5e7eb;
-        }
-        .contact-link:hover { background: #e0e7ff; border-color: var(--primary); }
-        .contact-icon { width: 35px; height: 35px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
-
-        /* بٹنز */
-        .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            border: none;
-            width: 100%;
-            cursor: pointer;
-            font-weight: bold;
-            margin-top: 10px;
-            text-decoration: none;
-            text-align: center;
-        }
-        .btn-success { background: var(--success); }
-        .btn-danger { background: var(--danger); }
-        .btn-outline { background: transparent; border: 1px solid var(--primary); color: var(--primary); }
-
-        /* انپٹ فیلڈز */
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--text); font-size: 0.95rem; }
+        
         input, select, textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 12px;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            box-sizing: border-box;
+            width: 100%; padding: 14px; margin-bottom: 5px; border: 2px solid #e5e7eb; border-radius: 12px;
+            font-size: 1rem; font-family: 'Tajawal', sans-serif; transition: all 0.3s ease; background: #fafafa;
         }
+        input:focus, select:focus, textarea:focus { border-color: var(--primary); background: white; box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1); }
+        
+        .btn { width: 100%; padding: 15px; background: var(--primary); color: white; border: none; border-radius: 12px; font-size: 1rem; font-weight: bold; cursor: pointer; transition: transform 0.1s; box-shadow: var(--shadow); display: flex; justify-content: center; align-items: center; gap: 10px; }
+        .btn:active { transform: scale(0.98); }
+        .btn-success { background: var(--success); } .btn-danger { background: var(--danger); } .btn-gold { background: var(--accent); color: white; }
+        
+        .profile-header { text-align: center; margin-bottom: 20px; }
+        .profile-img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 4px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: all 0.3s; }
+        .teacher-name { font-size: 1.2rem; font-weight: bold; margin-top: 10px; color: var(--primary-dark); }
+        .teacher-role { font-size: 0.85rem; color: #666; }
 
-        /* تصاویر */
-        .profile-img {
-            width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid #eee;
-            margin-bottom: 10px;
-        }
-        .teacher-card { display: flex; align-items: center; gap: 15px; margin-bottom: 10px; border-bottom: 1px solid #f0f0f0; padding-bottom: 10px; }
+        .bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-top: 1px solid rgba(0,0,0,0.05); display: flex; justify-content: space-around; padding: 12px 0; z-index: 1000; box-shadow: 0 -4px 20px rgba(0,0,0,0.03); }
+        .nav-item { text-align: center; color: #9ca3af; font-size: 0.75rem; cursor: pointer; flex: 1; }
+        .nav-item.active { color: var(--primary); }
+        .nav-item i { font-size: 1.4rem; display: block; margin-bottom: 4px; }
 
-        /* پاس ورڈ سیکشن */
-        .login-box { text-align: center; padding: 40px 20px; }
+        .data-item { background: white; padding: 15px; border-radius: 12px; margin-bottom: 10px; border-right: 4px solid var(--primary); box-shadow: var(--shadow); }
+        .status-tag { padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
+        .tag-present { background: #d1fae5; color: #065f46; } .tag-absent { background: #fee2e2; color: #991b1b; }
+
+        /* ٹیبس کا اسٹائل */
+        .tabs { display: flex; gap: 10px; margin-bottom: 15px; }
+        .tab-btn { flex: 1; padding: 10px; border: none; background: #e5e7eb; border-radius: 8px; font-weight: bold; color: #666; cursor: pointer; }
+        .tab-btn.active { background: var(--primary); color: white; }
+
+        .contact-card { display: flex; align-items: center; padding: 15px; background: #f9fafb; border-radius: 12px; margin-bottom: 10px; text-decoration: none; color: var(--text); transition: 0.3s; }
+        .contact-card:hover { background: #e0e7ff; transform: translateX(-5px); }
+        .icon-box { width: 45px; height: 45px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-left: 15px; box-shadow: var(--shadow); }
     </style>
 </head>
 <body>
 
-    <!-- ہیڈر -->
     <header class="main-header">
         <div class="logo">
-            <img src="https://flagcdn.com/w40/bh.png" class="bahrain-flag" alt="Bahrain">
-            <i class="fas fa-quran"></i> مركز ابن كثير
+            <img src="https://flagcdn.com/w40/bh.png" style="width: 24px; border-radius: 50%; border:2px solid white;" alt="BH">
+            <span>مركز ابن كثير</span>
         </div>
-        <div style="font-size: 0.8rem;"><i class="fas fa-user-shield"></i> نظام متكامل</div>
+        <div style="font-size: 0.8rem; opacity: 0.9;">نظام متكامل</div>
     </header>
 
-    <!-- ==========================================
-         پیج نمبر 1: ہوم / مرکزی پیج (Home)
-    ========================================== -->
+    <!-- 1. ہوم پیج -->
     <div id="home" class="page-section active">
-        <!-- ہیرو سیکشن -->
-        <div style="background: var(--primary); color: white; padding: 30px 15px; text-align: center; border-radius: 0 0 20px 20px; margin-bottom: 20px;">
-            <h1 style="font-size: 2rem; margin-bottom: 10px;">مرحباً بكم</h1>
-            <p>مركز ابن كثير - مملكة البحرين</p>
-            <p style="font-size: 0.9rem; margin-top: 5px; opacity: 0.8;">7 مساجد - 42 حلقة تعليمية</p>
+        <div style="text-align: center; margin-bottom: 25px;">
+            <h1 style="font-size: 1.8rem; color: var(--primary); margin-bottom: 5px;">مرحباً بكم</h1>
+            <p style="color: var(--text-light);">رفاع الغربی - مملكة البحرين</p>
         </div>
+        <div class="card" style="text-align: center; border-top: 5px solid var(--accent);">
+            <i class="fas fa-quran" style="font-size: 3rem; color: var(--primary); margin-bottom: 10px;"></i>
+                    <!-- ======== یہ نیا کارڈ مدیر (Supervisor) کے لیے ہے ======== -->
+        <div class="card" style="text-align: center; border-top: 5px solid var(--accent);">
+            <!-- مدیر کا آئیکن -->
+            <!-- <i class="fas fa-user-tie" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 10px;"></i> -->
+                         <img id="teacherImage" src="https://picsum.photos/seed/teacher1/150/150" class="profile-img" alt="Teacher">
 
-        <!-- مرکزی مسجد کی تفصیل -->
-        <div class="card" style="border-color: var(--secondary);">
-            <h3 style="color: var(--secondary); margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
-                <i class="fas fa-star"></i> مسجد عمر بن سلطان (المقر الرئيسي)
-            </h3>
             
-            <div class="teacher-card">
-                <img src="https://picsum.photos/seed/sheikhjasm/100/100" class="profile-img" alt="Sheikh Jasm">
-                <div>
-                    <strong style="color: var(--primary); font-size: 1.1rem;">الشيخ جاسم</strong>
-                    <div style="font-size: 0.85rem; color: #666;">المشرف العام للمدیر</div>
-                    <div style="font-size: 0.85rem; color: var(--secondary);">إمام وخطيب المسجد</div>
-                </div>
-            </div>
-
-            <div class="teacher-card">
-                <img src="https://picsum.photos/seed/abulkhair/100/100" class="profile-img" alt="Abu Al-Khair">
-                <div>
-                    <strong>أبو الخير</strong>
-                    <div style="font-size: 0.85rem; color: #666;">نائب الإمام</div>
-                    <div style="font-size: 0.85rem; color: #666;">معلم الحلقة</div>
-                </div>
-            </div>
-
-            <div class="teacher-card" style="border-bottom: none;">
-                <img src="https://picsum.photos/seed/ahmedhassan/100/100" class="profile-img" alt="Ahmed Hassan">
-                <div>
-                    <strong>أحمد حسن</strong>
-                    <div style="font-size: 0.85rem; color: #666;">معلم الحلقة</div>
-                </div>
-            </div>
+            <!-- ٹائٹل -->
+            <h3 style="color: var(--accent); margin-bottom: 5px;">المشرف العام</h3>
+            
+            <!-- نام -->
+            <p style="font-size: 1.2rem; color: var(--primary-dark); font-weight: bold; margin: 5px 0;">الشيخ الجمعان جاسم الروی</p>
+            
+            <!-- ذمہ داری -->
+            <p style="font-size: 0.9rem; color: #666;">إمام وخطيب المسجد عمر بن علی بن سلطان الرئيسي المرکز ابن کیثر المکی</p>
+            
+            <!-- تفصیل جو آپ نے پوچھا تھا -->
+            <p style="font-size: 0.85rem; color: #555; margin-top: 15px; line-height: 1.8;">
+                يعمل المركز كله تحت إشراف ومتابعة الشيخ الجمعان جاسم الروی (حفظه الله)، المشرف العام على المركز.
+            </p>
         </div>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-            <div class="card" style="margin-bottom: 0; text-align: center; padding: 15px;"><i class="fas fa-mosque"></i> مسجد 2</div>
-            <div class="card" style="margin-bottom: 0; text-align: center; padding: 15px;"><i class="fas fa-mosque"></i> مسجد 3</div>
-            <div class="card" style="margin-bottom: 0; text-align: center; padding: 15px;"><i class="fas fa-mosque"></i> مسجد 4</div>
-            <div class="card" style="margin-bottom: 0; text-align: center; padding: 15px;"><i class="fas fa-mosque"></i> مسجد 5</div>
+            <h3>المساجد السبعة</h3>
+            <p style="margin-top: 10px; color: #666; line-height: 1.8;">مسجد عمر بن سلطان (المقر)<br>مسجد الشيخ عيسى الخليفة<br>باقي المساجد</p>
         </div>
     </div>
 
-    <!-- ==========================================
-         پیج نمبر 2: معلموں کا پورٹل (Teachers Portal)
-    ========================================== -->
+    <!-- 2. معلمون -->
     <div id="teachers" class="page-section">
-        <h2 style="text-align: center; color: var(--primary); margin-bottom: 20px;">بوابة المعلمين</h2>
-
-        <div class="card" style="text-align: center; background: #f0f9ff;">
-            <img src="https://picsum.photos/seed/teacheravatar/150/150" style="width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--primary);" alt="Teacher">
-            <h3>المعلم: (اسمك هنا)</h3>
-            <p style="font-size: 0.9rem; color: #666;">مسأول تسجيل الحضور والمتابعة</p>
+        <div class="profile-header">
+            <img id="teacherImage" src="https://picsum.photos/seed/teacher1/150/150" class="profile-img" alt="Teacher">
+            <div id="teacherName" class="teacher-name">شیخ الجمعان جاسم</div>
+            <div id="teacherRole" class="teacher-role">المشرف العام</div>
         </div>
 
+        <h2 style="margin-bottom: 20px; color: var(--primary); text-align: center;">تسجيل الحضور</h2>
         <div class="card">
-            <label style="font-weight: bold; display: block; margin-bottom: 5px;">اختر المسجد:</label>
-            <select id="mosqueSelect">
-                <option value="مسجد عمر بن سلطان">مسجد عمر بن سلطان</option>
-                <option value="مسجد 2">مسجد 2</option>
-                <option value="مسجد 3">مسجد 3</option>
-                <option value="مسجد 4">مسجد 4</option>
-                <option value="مسجد 5">مسجد 5</option>
-                <option value="مسجد 6">مسجد 6</option>
-                <option value="مسجد 7">مسجد 7</option>
-            </select>
-
-            <label style="font-weight: bold; display: block; margin-bottom: 5px;">اسم الطالب:</label>
-            <input type="text" placeholder="اكتب اسم الطالب...">
-
-            <label style="font-weight: bold; display: block; margin-bottom: 5px;">الحالة:</label>
-            <div style="display: flex; gap: 10px; margin-bottom: 15px;">
-                <button type="button" class="btn btn-success" style="margin:0; flex:1;">حاضر</button>
-                <button type="button" class="btn btn-danger" style="margin:0; flex:1;">غائب</button>
+            <div class="form-group">
+                <label><i class="fas fa-mosque"></i> اختر المسجد</label>
+                <select id="t_mosque" onchange="updateCircles()">
+                    <option value="مسجد عمر بن سلطان بن علی">مسجد عمر بن سلطان بن علی</option>
+                    <option value="مسجد الشيخ عيسى الخليفة">مسجد الشيخ عيسى الخليفة</option>
+                    <option value="مسجد 3">مسجد 3</option>
+                    <option value="مسجد 4">مسجد 4</option>
+                    <option value="مسجد 5">مسجد 5</option>
+                    <option value="مسجد 6">مسجد 6</option>
+                    <option value="مسجد 7">مسجد 7</option>
+                </select>
             </div>
 
-            <label style="font-weight: bold; display: block; margin-bottom: 5px;">ملاحظات / المذاكرة:</label>
-            <textarea rows="3" placeholder="مثال: حفظ سورة الكهف الآية 10"></textarea>
+            <div class="form-group">
+                <label><i class="fas fa-chalkboard-teacher"></i> اختر الحلقة/المعلم</label>
+                <select id="t_circle" onchange="updateTeacher()"></select>
+            </div>
 
-            <button class="btn btn-success">
-                <i class="fas fa-paper-plane"></i> إرسال البيانات
+            <div class="form-group">
+                <label><i class="fas fa-user-graduate"></i> اسم الطالب</label>
+                <input type="text" id="t_student" placeholder="اكتب اسم الطالب هنا...">
+            </div>
+
+            <div class="form-group">
+                <label><i class="fas fa-check-circle"></i> الحالة</label>
+                <select id="t_status">
+                    <option value="حاضر">حاضر</option>
+                    <option value="غائب">غائب</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label><i class="fas fa-sticky-note"></i> ملاحظات</label>
+                <textarea id="t_notes" rows="3" placeholder="تفاصيل الحفظ..."></textarea>
+            </div>
+
+            <button class="btn btn-success" id="btnAttend" onclick="sendData('Attendance')">
+                <i class="fas fa-paper-plane"></i> إرسال الحضور
             </button>
         </div>
     </div>
 
-    <!-- ==========================================
-         پیج نمبر 3: مدیر کا پورٹل (Director/Sheikh Jasm)
-    ========================================== -->
+    <!-- 3. مدیر -->
     <div id="admin" class="page-section">
-        <h2 style="text-align: center; color: var(--primary); margin-bottom: 20px;">دخول المشرف العام</h2>
-
-        <div id="adminLogin" class="card login-box">
-            <i class="fas fa-user-lock" style="font-size: 3rem; color: var(--primary); margin-bottom: 15px;"></i>
-            <p>منطقة مخصصة للشيخ جاسم</p>
-            <input type="password" id="adminPassword" placeholder="أدخل كلمة المرور (admin123)">
-            <button class="btn" onclick="checkAdmin()">دخول</button>
-            <p id="loginError" style="color: red; font-size: 0.8rem; margin-top: 10px; display: none;">كلمة المرور خاطئة!</p>
+        <div id="loginPanel" class="card" style="text-align: center; max-width: 400px; margin: 0 auto;">
+            <img src="https://picsum.photos/seed/sheikhjasm/150/150" class="profile-img" alt="Supervisor" style="margin-bottom: 10px;">
+            <h2>الدخول المشرف</h2>
+            <input type="password" id="passInput" placeholder="كلمة المرور" style="text-align: center; letter-spacing: 2px;">
+            <button class="btn" onclick="login()">دخول</button>
         </div>
 
-        <div id="adminDashboard" style="display: none;">
-            <div class="card" style="background: var(--primary); color: white;">
-                <h3><i class="fas fa-chart-pie"></i> لوحة التحكم العامة</h3>
-                <p>أهلاً بك يا شيخنا</p>
+        <div id="dashboardPanel" style="display: none;">
+            <div class="card" style="background: var(--primary); color: white; display: flex; justify-content: space-between; align-items: center;">
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <img src="https://picsum.photos/seed/sheikhjasm/50/50" style="width:40px; height:40px; border-radius:50%; border:2px solid white;">
+                    <div><h3>لوحة التحكم</h3><p style="font-size: 0.8rem; opacity: 0.8;">الشيخ جاسم</p></div>
+                </div>
+                <button class="btn btn-danger" style="width: auto; padding: 8px 15px; font-size: 0.9rem;" onclick="logout()">خروج</button>
             </div>
-
+            
             <div class="card">
-                <h4>آخر التقارير (نموذج)</h4>
-                <div style="border-bottom: 1px solid #eee; padding: 8px 0;">
-                    <strong>أحمد علي</strong> - مسجد عمر بن سلطان <span style="color: green;">(حاضر)</span>
+                <h3 style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
+                    <i class="fas fa-list-alt"></i> التقارير
+                </h3>
+                <!-- ٹیبس -->
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="switchTab('Attendance', this)">سجل الحضور</button>
+                    <button class="tab-btn" onclick="switchTab('Exams', this)">سجل الامتحانات</button>
                 </div>
-                <div style="border-bottom: 1px solid #eee; padding: 8px 0;">
-                    <strong>علي حسن</strong> - مسجد 2 <span style="color: red;">(غائب)</span>
-                </div>
-            </div>
 
-            <button class="btn btn-danger" onclick="logoutAdmin()">تسجيل الخروج</button>
+                <div id="listContainer" style="max-height: 500px; overflow-y: auto;"></div>
+                
+                <button class="btn" style="background: #e5e7eb; color: #374151; margin-top: 15px;" onclick="loadData()">
+                    <i class="fas fa-sync"></i> تحديث
+                </button>
+            </div>
         </div>
     </div>
 
-    <!-- ==========================================
-         پیج نمبر 4: امتحانات (Exams)
-    ========================================== -->
+    <!-- 4. امتحانات -->
     <div id="exams" class="page-section">
-        <h2 style="text-align: center; color: var(--primary); margin-bottom: 20px;">الامتحانات</h2>
-
+        <h2 style="margin-bottom: 20px; color: var(--accent); text-align: center;">تسجيل الامتحانات</h2>
         <div class="card">
-            <div style="text-align: center; margin-bottom: 15px;">
-                <img src="https://picsum.photos/seed/examiner/80/80" style="border-radius: 50%; border: 2px solid var(--secondary);">
-                <h3>الأمتحانات</h3>
+            <div class="form-group">
+                <label><i class="fas fa-mosque"></i> المسجد</label>
+                <select id="e_mosque">
+                    <option>مسجد عمر بن سلطان</option>
+                    <option>مسجد 2</option>
+                </select>
             </div>
 
-            <label>اختر المسجد:</label>
-            <select>
-                <option>مسجد عمر بن سلطان</option>
-                <option>مسجد 2</option>
-                <option>مسجد 3</option>
-            </select>
+            <div class="form-group">
+                <label><i class="fas fa-user-tie"></i> اسم الممتحن (Examiner)</label>
+                <input type="text" id="e_examiner" placeholder="اسم من سيأخذ الامتحان">
+            </div>
 
-            <label>اسم الطالب:</label>
-            <input type="text">
+            <div class="form-group">
+                <label><i class="fas fa-user-graduate"></i> اسم الطالب</label>
+                <input type="text" id="e_student" placeholder="اسم الطالب...">
+            </div>
 
-            <label>نوع الاختبار:</label>
-            <select>
-                <option>اختبار حفظ</option>
-                <option>اختبار مراجعة</option>
-            </select>
+            <div class="form-group">
+                <label><i class="fas fa-file-alt"></i> نوع الاختبار</label>
+                <select id="e_type">
+                    <option>اختبار حفظ</option>
+                    <option>اختبار مراجعة</option>
+                </select>
+            </div>
 
-            <label>الدرجة:</label>
-            <textarea rows="2" placeholder="ادخل الدرجة والملاحظات..."></textarea>
+            <div class="form-group">
+                <label><i class="fas fa-star"></i> الدرجة</label>
+                <input type="text" id="e_score" placeholder="مثال: 10/10">
+            </div>
 
-            <button class="btn" style="background: var(--secondary);">حفظ النتيجة</button>
+            <button class="btn btn-gold" id="btnExam" onclick="sendData('Exams')">
+                <i class="fas fa-save"></i> حفظ النتيجة
+            </button>
         </div>
     </div>
 
-    <!-- ==========================================
-         پیج نمبر 5: انفو اور رابطہ (Info & Contact - UPDATED)
-    ========================================== -->
+    <!-- 5. معلومات -->
     <div id="info" class="page-section">
-        <h2 style="text-align: center; color: var(--primary); margin-bottom: 20px;">معلومات و تواصل</h2>
-        
-        <div class="card">
-            <h3 style="margin-bottom: 15px;">عن المركز</h3>
-            <p style="font-size: 0.9rem; color: #555;">
-                مركز ابن كثير هو مؤسسة تعليمية قرآنية في مملكة البحرين، هدفها تحفيظ كتاب الله ونشر تعاليمه تحت إشراف الشيخ جاسم.
-            </p>
-        </div>
-
-        <!-- رابطہ کے لنکس (Contact Links) -->
-        <div class="card">
-            <h3 style="margin-bottom: 15px;">تواصل معنا (اتصل بنا)</h3>
-            
-            <!-- فون نمبر -->
-            <a href="tel:+97312345678" class="contact-link">
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <div class="contact-icon" style="color: #10b981;"><i class="fas fa-phone"></i></div>
-                    <strong>اتصل بنا</strong>
-                </div>
-                <span>+973 1234 5678</span>
-            </a>
-
-            <!-- ای میل -->
-            <a href="mailto:info@ibnkathir.bh" class="contact-link">
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <div class="contact-icon" style="color: #3b82f6;"><i class="fas fa-envelope"></i></div>
-                    <strong>البريد الإلكتروني</strong>
-                </div>
-                <span>info@ibnkathir.bh</span>
-            </a>
-
-            <!-- لوکیشن -->
-            <a href="https://maps.google.com/?q=Manama+Bahrain" target="_blank" class="contact-link">
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <div class="contact-icon" style="color: #ef4444;"><i class="fas fa-map-marker-alt"></i></div>
-                    <strong>الموقع</strong>
-                </div>
-                <span>المنامة، مملكة البحرين</span>
-            </a>
-        </div>
-
-        <!-- سوشل میڈیا لنکس (Social Media) -->
-        <div class="card" style="text-align: center;">
-            <h3 style="margin-bottom: 15px;">تابعونا (Follow Us)</h3>
-            
-            <!-- انسٹاگرام -->
-            <a href="https://www.instagram.com/ibn_katheer_almakki/?hl=ar" target="_blank" class="btn" style="background: linear-gradient(45deg, #f09433, #bc1888); color: white; border: none;">
-                <i class="fab fa-instagram"></i> Instagram
-            </a>
-            
-            <!-- واٹس ایپ -->
-            <a href="https://wa.me/97312345678" target="_blank" class="btn btn-success" style="margin-top: 10px; background: #25D366;">
-                <i class="fab fa-whatsapp"></i> WhatsApp
-            </a>
-        </div>
-        
-        <div style="text-align: center; margin-top: 30px; font-size: 0.8rem; color: #999;">
-            &copy; 2023 مركز ابن كثير - جميع الحقوق محفوظة
+        <div class="card" style="text-align: center;"><h2 style="color: var(--primary);">معلومات التواصل</h2><p style="font-size: 0.9rem; color: #666; margin-top: 10px;">نسعد بخدمتكم</p></div>
+        <a href="tel:+97366357733" class="contact-card"><div style="flex: 1;"><h4 style="margin-bottom: 2px;">الهاتف</h4><span style="font-size: 0.85rem; color: #666;">+973 6635 7733</span></div><div class="icon-box" style="color: green;"><i class="fas fa-phone-alt"></i></div></a>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <a href="https://wa.me/97366357733" target="_blank" class="btn btn-success" style="margin-top:0; text-decoration: none;"><i class="fab fa-whatsapp"></i> واتساب</a>
+            <a href="https://www.instagram.com/ibn_katheer_almakki/" target="_blank" class="btn" style="margin-top:0; background: #C13584; text-decoration: none;"><i class="fab fa-instagram"></i> انستقرام</a>
         </div>
     </div>
 
-    <!-- نیچے کا نیویگیشن مینو -->
     <nav class="bottom-nav">
-        <div class="nav-item active" onclick="showPage('home')">
-            <i class="fas fa-home"></i>
-            <span>الرئيسية</span>
-        </div>
-        <div class="nav-item" onclick="showPage('teachers')">
-            <i class="fas fa-chalkboard-teacher"></i>
-            <span>المعلمون</span>
-        </div>
-        <div class="nav-item" onclick="showPage('admin')">
-            <i class="fas fa-user-shield"></i>
-            <span>المشرف</span>
-        </div>
-        <div class="nav-item" onclick="showPage('exams')">
-            <i class="fas fa-clipboard-check"></i>
-            <span>الامتحانات</span>
-        </div>
-        <div class="nav-item" onclick="showPage('info')">
-            <i class="fas fa-info-circle"></i>
-            <span>معلومات</span>
-        </div>
+        <div class="nav-item active" onclick="showPage('home')"><i class="fas fa-home"></i><span>الرئيسية</span></div>
+        <div class="nav-item" onclick="showPage('teachers')"><i class="fas fa-user-check"></i><span>حضور</span></div>
+        <div class="nav-item" onclick="showPage('exams')"><i class="fas fa-clipboard-check"></i><span>امتحانات</span></div>
+        <div class="nav-item" onclick="showPage('admin')"><i class="fas fa-user-shield"></i><span>مشرف</span></div>
+        <div class="nav-item" onclick="showPage('info')"><i class="fas fa-info"></i><span>اتصال</span></div>
     </nav>
 
-    <!-- جاوا اسکرپٹ -->
     <script>
-        function showPage(pageId) {
-            document.querySelectorAll('.page-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            document.getElementById(pageId).classList.add('active');
+        const URL = 'https://script.google.com/macros/s/AKfycbxDR4kG5BJMe8lNFCSkcxuj3U0-m3bG18j0sslaRNDiuSqGLc0QrcfyOE6inPZhQ1d4/exec'; 
 
-            document.querySelectorAll('.nav-item').forEach(item => {
-                item.classList.remove('active');
-            });
+        // --- 7 مساجد اور معلموں کا ڈیٹا ---
+        const teachersData = {
+            "مسجد عمر بن سلطان بن علی": [
+                { name: "حلقة الشيخ احمد حسن ", role: "المشرف العام", img: "https://picsum.photos/seed/sheikhjasm/150/150" },
+                { name: "حلقة أبو الخير (نائب)", role: "نائب الإمام", img: "https://picsum.photos/seed/abulkhair/150/150" },
+                { name: "حلقة الشيخ أحمد", role: "معلم", img: "https://picsum.photos/seed/sheikhahmed/150/150" },
+                { name: "حلقة 4", role: "معلم", img: "https://picsum.photos/seed/tea4/150/150" },
+                { name: "حلقة 5", role: "معلم", img: "https://picsum.photos/seed/tea5/150/150" }
+            ],
+            "مسجد الشيخ عيسى الخليفة": [
+                { name: "الممتحن شیخ سامی", role: "العمام", img: "https://www.instagram.com/p/C0xDy3SLNEk/?hl=ar&img_index=1" },
+                { name: "حلقة 2", role: "معلم", img: "https://picsum.photos/seed/t2/150/150" },
+                { name: "حلقة 3", role: "معلم", img: "https://picsum.photos/seed/t3/150/150" },
+                { name: "حلقة 4", role: "معلم", img: "https://picsum.photos/seed/t4/150/150" },
+                { name: "حلقة 5", role: "معلم", img: "https://picsum.photos/seed/t5/150/150" }
+            ],
+            "مسجد 3": [{ name: "معلم 1", role: "معلم", img: "https://picsum.photos/seed/d3t1/150/150" }],
+            "مسجد 4": [{ name: "معلم 1", role: "معلم", img: "https://picsum.photos/seed/d4t1/150/150" }],
+            "مسجد 5": [{ name: "معلم 1", role: "معلم", img: "https://picsum.photos/seed/d5t1/150/150" }],
+            "مسجد 6": [{ name: "معلم 1", role: "معلم", img: "https://picsum.photos/seed/d6t1/150/150" }],
+            "مسجد 7": [{ name: "معلم 1", role: "معلم", img: "https://picsum.photos/seed/d7t1/150/150" }]
+        };
+
+        // --- Global Variables ---
+        let currentSheet = 'Attendance'; // ڈیفالٹ شیٹ
+
+        function showPage(id) {
+            document.querySelectorAll('.page-section').forEach(d => d.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
             event.currentTarget.classList.add('active');
-            
-            window.scrollTo(0, 0);
+            window.scrollTo(0,0);
         }
 
-        function checkAdmin() {
-            const pass = document.getElementById('adminPassword').value;
-            if(pass === 'admin123') {
-                document.getElementById('adminLogin').style.display = 'none';
-                document.getElementById('adminDashboard').style.display = 'block';
-            } else {
-                document.getElementById('loginError').style.display = 'block';
+        // --- Update Circles & Teacher Profile ---
+        function updateCircles() {
+            const mosque = document.getElementById('t_mosque').value;
+            const circleSelect = document.getElementById('t_circle');
+            circleSelect.innerHTML = '';
+            teachersData[mosque].forEach(teacher => {
+                const option = document.createElement('option');
+                option.value = teacher.name;
+                option.innerText = teacher.name;
+                option.setAttribute('data-img', teacher.img);
+                option.setAttribute('data-role', teacher.role);
+                circleSelect.appendChild(option);
+            });
+            updateTeacher();
+        }
+
+        function updateTeacher() {
+            const circleSelect = document.getElementById('t_circle');
+            if(circleSelect.options.length > 0) {
+                const option = circleSelect.options[circleSelect.selectedIndex];
+                document.getElementById('teacherImage').src = option.getAttribute('data-img');
+                document.getElementById('teacherName').innerText = option.value;
+                document.getElementById('teacherRole').innerText = option.getAttribute('data-role');
             }
         }
 
-        function logoutAdmin() {
-            document.getElementById('adminPassword').value = '';
-            document.getElementById('adminLogin').style.display = 'block';
-            document.getElementById('adminDashboard').style.display = 'none';
-            document.getElementById('loginError').style.display = 'none';
+        // --- Send Data ---
+        function sendData(type) {
+            let btnId = type === 'Attendance' ? 'btnAttend' : 'btnExam';
+            let btn = document.getElementById(btnId);
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> جاري الإرسال...';
+            btn.classList.add('loading');
+            btn.disabled = true;
+
+            let data = new FormData();
+            data.append('sheet', type);
+            
+            if(type === 'Attendance') {
+                const student = document.getElementById('t_student').value;
+                if(!student) { alert('براہ کرم نام لکھیں'); return resetBtn(); }
+                
+                data.append('Mosque', document.getElementById('t_mosque').value);
+                data.append('Circle', document.getElementById('t_circle').value); // حلقہ کا نام
+                data.append('Teacher', document.getElementById('teacherName').innerText); // معلم کا مخصوص نام
+                data.append('Student', student);
+                data.append('Status', document.getElementById('t_status').value);
+                data.append('Notes', document.getElementById('t_notes').value);
+            } else {
+                const student = document.getElementById('e_student').value;
+                const examiner = document.getElementById('e_examiner').value;
+                
+                if(!student) { alert('براہ کرم نام لکھیں'); return resetBtn(); }
+                if(!examiner) { alert('براہ کرم ممتحن کا نام لکھیں'); return resetBtn(); }
+
+                data.append('Mosque', document.getElementById('e_mosque').value);
+                data.append('Examiner', examiner); // ممتحن کا نام
+                data.append('Student', student);
+                data.append('Type', document.getElementById('e_type').value);
+                data.append('Score', document.getElementById('e_score').value);
+                data.append('Notes', 'امتحان');
+            }
+
+            function resetBtn() {
+                btn.innerHTML = originalText; btn.classList.remove('loading'); btn.disabled = false;
+            }
+
+            fetch(URL, { method: 'POST', body: data, mode: 'no-cors' })
+            .then(() => {
+                alert("الحمد لله! تم الحفظ بنجاح.");
+                if(type === 'Attendance') {
+                    document.getElementById('t_student').value = ''; document.getElementById('t_notes').value = '';
+                } else {
+                    document.getElementById('e_student').value = ''; document.getElementById('e_examiner').value = ''; document.getElementById('e_score').value = '';
+                }
+                resetBtn();
+            })
+            .catch(e => { console.log(e); alert("حصل خطأ ما."); resetBtn(); });
         }
+
+        // --- Admin ---
+        function login() {
+            if(document.getElementById('passInput').value === 'admin123') {
+                document.getElementById('loginPanel').style.display = 'none';
+                document.getElementById('dashboardPanel').style.display = 'block';
+                loadData();
+            } else { alert('كلمة المرور غير صحيحة'); }
+        }
+        function logout() {
+            document.getElementById('loginPanel').style.display = 'block';
+            document.getElementById('dashboardPanel').style.display = 'none';
+        }
+
+        // --- Tabs Switching ---
+        function switchTab(sheet, btnElement) {
+            currentSheet = sheet;
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btnElement.classList.add('active');
+            loadData();
+        }
+
+        // --- Load Data ---
+        function loadData() {
+            const container = document.getElementById('listContainer');
+            container.innerHTML = '<div style="text-align:center; padding:20px; color:#999;"><i class="fas fa-spinner fa-spin"></i></div>';
+            
+            fetch(URL + '?sheet=' + currentSheet)
+            .then(r => r.json())
+            .then(data => {
+                let html = '';
+                if(data.length > 1) {
+                    data.slice(1).reverse().forEach(row => {
+                        if (currentSheet === 'Attendance') {
+                            // Row: 0=Date, 1=Mosque, 2=Circle, 3=Teacher, 4=Student, 5=Status, 6=Notes
+                            const status = row[5] || 'حاضر';
+                            const badgeClass = status === 'حاضر' ? 'tag-present' : 'tag-absent';
+                            html += `<div class="data-item">
+                                        <div>
+                                            <strong style="font-size:1.1rem; display:block;">${row[4]}</strong>
+                                            <span style="font-size:0.85rem; color:#666;">${row[3]} - ${row[2]}</span>
+                                            <span style="display:block; font-size:0.8rem; color:#888;">${row[1]}</span>
+                                        </div>
+                                        <span class="status-tag ${badgeClass}">${status}</span>
+                                     </div>`;
+                        } else {
+                            // Exams: 0=Date, 1=Mosque, 2=Examiner, 3=Student, 4=Type, 5=Score, 6=Notes
+                            html += `<div class="data-item">
+                                        <div>
+                                            <strong style="font-size:1.1rem; display:block;">${row[3]}</strong>
+                                            <span style="font-size:0.85rem; color:#666;">Examiner: ${row[2]}</span>
+                                            <span style="display:block; font-size:0.8rem; color:#888;">Type: ${row[4]} | Score: ${row[5]}</span>
+                                        </div>
+                                     </div>`;
+                        }
+                    });
+                } else { html = '<p style="text-align:center; padding:20px; color:#999;">لا يوجد بيانات</p>'; }
+                container.innerHTML = html;
+            });
+        }
+
+        // Initialize
+        updateCircles();
     </script>
 </body>
 </html>
