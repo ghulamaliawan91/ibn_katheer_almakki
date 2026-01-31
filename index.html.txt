@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>???? ??? ???? - ??? ??????</title>
-    <!-- ???? ????? -->
+    <title>مركز ابن كثير - عرض تقديمي</title>
+    <!-- عربی فونٹس -->
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <!-- ?????? -->
+    <!-- آئیکنز -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-color: #1e3a8a; /* ???? */
-            --secondary-color: #d97706; /* ????? */
-            --accent-color: #10b981; /* ??? */
-            --form-btn-color: #7c3aed; /* ????? - ???? ?? ??? */
+            --primary-color: #1e3a8a; /* نیلا */
+            --secondary-color: #d97706; /* سنہرا */
+            --accent-color: #10b981; /* سبز */
+            --form-btn-color: #7c3aed; /* بنگنی - فارم کے لیے */
             --bg-color: #f8fafc;
             --text-dark: #1f2937;
             --text-light: #64748b;
@@ -36,7 +36,7 @@
 
         a { text-decoration: none; color: inherit; }
 
-        /* ???? */
+        /* ہیڈر */
         header {
             background-color: var(--white);
             box-shadow: var(--shadow);
@@ -64,7 +64,7 @@
         }
         .logo i { color: var(--secondary-color); }
 
-        /* ??????? ?? ????? ?? ?????? */
+        /* پاکستان کے جھنڈے کا اسٹائل */
         .flag-img {
             width: 35px; height: 35px; border-radius: 50%; border: 2px solid #eee;
         }
@@ -81,7 +81,7 @@
             background-color: #2563eb; color: white; padding: 8px 18px; border-radius: 50px; font-weight: bold; cursor: pointer; border: none; display: flex; align-items: center; gap: 8px;
         }
 
-        /* ????? */
+        /* سیکشز */
         section {
             padding: 60px 0;
             min-height: 80vh;
@@ -99,7 +99,7 @@
             padding-bottom: 5px;
         }
 
-        /* ???? */
+        /* ہیرو */
         .hero {
             background: linear-gradient(135deg, var(--primary-color), #2563eb);
             color: var(--white);
@@ -108,7 +108,7 @@
         .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
         .hero p { font-size: 1.5rem; opacity: 0.9; margin-bottom: 20px; }
 
-        /* ????? ?????? */
+        /* گلوبل نیٹورک */
         .network-stats {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 40px;
         }
@@ -129,7 +129,7 @@
         }
         .mini-mosque-card.active { border: 2px solid var(--secondary-color); background: #fffbeb; }
 
-        /* ???? ???? ??? ?? ?????? */
+        /* گوگل فارم بٹن کا اسٹائل */
         .form-btn-mini {
             display: block; width: 100%; margin-top: 15px;
             background-color: var(--form-btn-color); color: white;
@@ -139,7 +139,7 @@
         .form-btn-mini:hover { background-color: #6d28d9; }
 
 
-        /* ??? ???? */
+        /* شیخ جاسم */
         .sheikh-wrapper {
             display: flex; align-items: center; gap: 40px; justify-content: center;
             background: #f8fafc; padding: 40px; border-radius: var(--radius);
@@ -160,7 +160,7 @@
         .badge-imam { background-color: white; color: var(--primary-color); border: 1px solid var(--primary-color); }
         .sheikh-desc { font-size: 1.4rem; color: #4b5563; line-height: 2; }
 
-        /* ???? */
+        /* حلقے */
         .bahrain-mosque-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;
         }
@@ -173,7 +173,7 @@
         .circle-icon { width: 60px; height: 60px; background: #ecfdf5; color: var(--accent-color); display: flex; align-items: center; justify-content: center; border-radius: 10px; font-size: 2rem; }
         .teacher-name { font-weight: bold; font-size: 1.2rem; }
 
-        /* ??? ???? ?? ??? ??? */
+        /* بڑے فارم کے لیے بٹن */
         .form-btn-lg {
             display: block; width: 100%; margin-top: 20px;
             background-color: var(--form-btn-color); color: white;
@@ -182,7 +182,7 @@
         }
         .form-btn-lg:hover { background-color: #6d28d9; }
 
-        /* ??? */
+        /* فیڈ */
         .feed-item {
             background: var(--white); padding: 20px; margin-bottom: 15px; border-radius: 10px;
             display: flex; align-items: center; border-right: 5px solid #eee;
@@ -196,14 +196,14 @@
         .status-absent { background: #fee2e2; color: #991b1b; }
         .status-late { background: #fef3c7; color: #92400e; }
 
-        /* ???? */
+        /* فوٹر */
         footer {
             background: var(--text-dark); color: white; text-align: center; padding: 20px 0;
             margin-top: auto; position: fixed; bottom: 0; width: 100%; z-index: 10;
         }
         .footer-content { padding: 10px 20px; background: rgba(30, 41, 59, 0.9); border-radius: 50px; display: inline-block; }
 
-        /* ????/?????? ?????? */
+        /* پرنٹ/سلائیڈ سیٹنگز */
         @media print {
             body { background: white; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
             header, footer, .download-btn, .insta-btn, .nav-center, .form-btn-mini, .form-btn-lg { display: none !important; }
@@ -220,21 +220,21 @@
 </head>
 <body>
 
-    <!-- ???? -->
+    <!-- ہیڈر -->
     <header>
         <div class="container nav-wrapper">
             <div class="logo">
-                <!-- ??????? ?? ????? -->
+                <!-- پاکستان کا جھنڈا -->
                 <img src="https://flagcdn.com/w40/pk.png" alt="Pakistan Flag" class="flag-img">
-                <i class="fas fa-quran"></i> ???? ??? ????
+                <i class="fas fa-quran"></i> مركز ابن كثير
             </div>
             <nav class="nav-center">
-                <span>???? ??????</span>
-                <span>??????</span>
+                <span>نظام المركز</span>
+                <span>المشرف</span>
             </nav>
             <div style="display:flex; gap:10px;">
                 <a href="https://www.instagram.com/ibn_katheer_almakki/?hl=ar" target="_blank" class="insta-btn">
-                    <i class="fab fa-instagram"></i> ???????
+                    <i class="fab fa-instagram"></i> تابعونا
                 </a>
                 <button onclick="window.print()" class="download-btn">
                     <i class="fas fa-file-pdf"></i> Download
@@ -243,197 +243,197 @@
         </div>
     </header>
 
-    <!-- ???? -->
-    <footer><div class="footer-content">???? ??? ???? - ????? ???????</div></footer>
+    <!-- فوٹر -->
+    <footer><div class="footer-content">مركز ابن كثير - مملكة البحرين</div></footer>
 
-    <!-- ?????? 1: ???? -->
+    <!-- سلائیڈ 1: ہیرو -->
     <section class="hero">
         <div class="container">
             <div style="margin-bottom: 30px;"><img src="https://flagcdn.com/w80/pk.png" alt="Pakistan" style="border:2px solid white; border-radius:50%;"></div>
-            <h1>???? ???? ?????? ?????? ??????</h1>
-            <p>?? ????? ??????? - ??? ????? ????? ????</p>
+            <h1>نظام شامل لتعليم القرآن الكريم</h1>
+            <p>من مملكة البحرين - تحت إشراف الشيخ جاسم</p>
             <div style="margin-top: 30px; font-size: 1.5rem; font-family: 'Tajawal', sans-serif;">
                 <i class="fab fa-instagram"></i> @ibn_katheer_almakki
             </div>
         </div>
     </section>
 
-    <!-- ?????? 2: ?????? (????? ?? ????? ??? ???? ????) -->
+    <!-- سلائیڈ 2: نیٹورک (مساجد کی فہرست اور فارم لنکس) -->
     <section>
         <div class="container">
-            <h2 class="section-title">?????? ?????? ??????</h2>
+            <h2 class="section-title">هيكلية المركز العامة</h2>
             <div class="network-stats">
                 <div class="stat-box">
                     <i class="fas fa-mosque"></i>
                     <div class="stat-number">7</div>
-                    <p>????? ?????</p>
+                    <p>مساجد تابعة</p>
                 </div>
                 <div class="stat-box">
                     <i class="fas fa-quran"></i>
                     <div class="stat-number">42</div>
-                    <p>???? (6 ??? ????)</p>
+                    <p>حلقة (6 لكل مسجد)</p>
                 </div>
                 <div class="stat-box">
                     <i class="fas fa-user-graduate"></i>
                     <div class="stat-number">42</div>
-                    <p>????? ?????</p>
+                    <p>معلّم معتمد</p>
                 </div>
             </div>
             
-            <p style="text-align: center; margin-bottom: 20px; font-size: 1.2rem; color: var(--text-light);">??????? ????? ???????:</p>
+            <p style="text-align: center; margin-bottom: 20px; font-size: 1.2rem; color: var(--text-light);">المساجد ورابط التسجيل:</p>
             <div class="mosque-list">
-                <!-- ???? 1 (?????) -->
+                <!-- مسجد 1 (مخصوص) -->
                 <div class="mini-mosque-card active">
                     <div>
                         <i class="fas fa-star" style="color:var(--secondary-color)"></i><br>
-                        ???? ???? ?? ???
-                        <small>(?????? ???????)</small>
+                        مسجد عمرو بن علي
+                        <small>(المحور الرئيسي)</small>
                     </div>
-                    <!-- ???? ???? ?? ??? ???? ????? -->
+                    <!-- گوگل فارم کا لنک یہاں ڈالیں -->
                     <a href="https://docs.google.com/forms/" target="_blank" class="form-btn-mini">
-                        <i class="fas fa-pen"></i> ????? ??? ??????
+                        <i class="fas fa-pen"></i> تقرير هذا المسجد
                     </a>
                 </div>
                 
-                <!-- ???? 2 -->
+                <!-- مسجد 2 -->
                 <div class="mini-mosque-card">
-                    <div>???? 2</div>
-                    <a href="https://docs.google.com/forms/" target="_blank" class="form-btn-mini">?????</a>
+                    <div>مسجد 2</div>
+                    <a href="https://docs.google.com/forms/" target="_blank" class="form-btn-mini">تقرير</a>
                 </div>
                 <div class="mini-mosque-card">
-                    <div>???? 3</div>
-                    <a href="https://docs.google.com/forms/" target="_blank" class="form-btn-mini">?????</a>
+                    <div>مسجد 3</div>
+                    <a href="https://docs.google.com/forms/" target="_blank" class="form-btn-mini">تقرير</a>
                 </div>
                 <div class="mini-mosque-card">
-                    <div>???? 4</div>
-                    <a href="https://docs.google.com/forms/" target="_blank" class="form-btn-mini">?????</a>
+                    <div>مسجد 4</div>
+                    <a href="https://docs.google.com/forms/" target="_blank" class="form-btn-mini">تقرير</a>
                 </div>
                 <div class="mini-mosque-card">
-                    <div>???? 5</div>
-                    <a href="https://docs.google.com/forms/" target="_blank" class="form-btn-mini">?????</a>
+                    <div>مسجد 5</div>
+                    <a href="https://docs.google.com/forms/" target="_blank" class="form-btn-mini">تقرير</a>
                 </div>
                 <div class="mini-mosque-card">
-                    <div>???? 6</div>
-                    <a href="https://docs.google.com/forms/" target="_blank" class="form-btn-mini">?????</a>
+                    <div>مسجد 6</div>
+                    <a href="https://docs.google.com/forms/" target="_blank" class="form-btn-mini">تقرير</a>
                 </div>
                 <div class="mini-mosque-card">
-                    <div>???? 7</div>
-                    <a href="https://docs.google.com/forms/" target="_blank" class="form-btn-mini">?????</a>
+                    <div>مسجد 7</div>
+                    <a href="https://docs.google.com/forms/" target="_blank" class="form-btn-mini">تقرير</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ?????? 3: ??? ???? -->
+    <!-- سلائیڈ 3: شیخ جاسم -->
     <section>
         <div class="container">
-            <h2 class="section-title">?????? ?????</h2>
+            <h2 class="section-title">المشرف العام</h2>
             <div class="sheikh-wrapper">
-                <img src="https://picsum.photos/seed/sheikh/400/400" alt="????? ????" class="sheikh-img">
+                <img src="https://picsum.photos/seed/sheikh/400/400" alt="الشيخ جاسم" class="sheikh-img">
                 <div class="sheikh-text">
-                    <h3>????? ???? (???? ????)</h3>
+                    <h3>الشيخ جاسم (حفظه الله)</h3>
                     <div class="roles-wrapper">
-                        <span class="role-badge badge-incharge"><i class="fas fa-user-shield"></i> ?????? ?????</span>
-                        <span class="role-badge badge-imam"><i class="fas fa-mosque"></i> ???? ?????</span>
+                        <span class="role-badge badge-incharge"><i class="fas fa-user-shield"></i> المشرف العام</span>
+                        <span class="role-badge badge-imam"><i class="fas fa-mosque"></i> إمام وخطيب</span>
                     </div>
                     <p class="sheikh-desc">
-                        ?????? ?????? ???? ??? ????? ????? ????? ??? ???? ??? ???? ??????? ????????.<br>
-                        ???????? ??? ???? ??? ????? ??????? <strong>??????? ????????</strong> ?? ???? ???? ?? ???.
+                        المركز بكامله يعمل تحت إشراف الشيخ جاسم، حيث يشرف على شؤون التدريس والإدارة.<br>
+                        بالإضافة إلى ذلك، فهو يتولى مسؤولية <strong>الإمامة والخطابة</strong> في مسجد عمرو بن علي.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ?????? 4: ???? (????? ??? ?? ???? ????) -->
+    <!-- سلائیڈ 4: حلقے (بنگنی رنگ کے فارم بٹنز) -->
     <section>
         <div class="container">
-            <h2 class="section-title">????? ???? ???? ?? ???</h2>
-            <p style="text-align: center; margin-bottom: 40px; font-size: 1.2rem;">??? ????? ??????? ????? ??????:</p>
+            <h2 class="section-title">حلقات مسجد عمرو بن علي</h2>
+            <p style="text-align: center; margin-bottom: 40px; font-size: 1.2rem;">تحت إشراف ومتابعة الشيخ المشرف:</p>
             
             <div class="bahrain-mosque-grid">
-                <!-- ???? 1 -->
+                <!-- حلقہ 1 -->
                 <div class="circle-card">
-                    <div class="circle-header"><div class="circle-icon"><i class="fas fa-sun"></i></div><h4>?????? ??????</h4></div>
+                    <div class="circle-header"><div class="circle-icon"><i class="fas fa-sun"></i></div><h4>الحلقة الأولى</h4></div>
                     <div>
-                        <p><strong>??????:</strong> ????? ?????</p>
-                        <p><strong>?????:</strong> ????? - ????? ??????</p>
+                        <p><strong>المعلم:</strong> الشيخ سلمان</p>
+                        <p><strong>الوقت:</strong> الفجر - تلاوة وتجويد</p>
                     </div>
-                    <!-- ???? ?? ????? ???? -->
+                    <!-- حلقے کا مخصوص فارم -->
                     <button class="form-btn-lg" onclick="window.open('https://docs.google.com/forms/', '_blank')">
-                        <i class="fas fa-pen-nib"></i> ????? ?????
+                        <i class="fas fa-pen-nib"></i> تسجيل اليوم
                     </button>
                 </div>
 
-                <!-- ???? 2 -->
+                <!-- حلقہ 2 -->
                 <div class="circle-card">
-                    <div class="circle-header"><div class="circle-icon"><i class="fas fa-moon"></i></div><h4>?????? ???????</h4></div>
+                    <div class="circle-header"><div class="circle-icon"><i class="fas fa-moon"></i></div><h4>الحلقة الثانية</h4></div>
                     <div>
-                        <p><strong>??????:</strong> ??????? ???</p>
-                        <p><strong>?????:</strong> ?????? - ??? ??? 30</p>
+                        <p><strong>المعلم:</strong> الأستاذ حسن</p>
+                        <p><strong>الوقت:</strong> المغرب - حفظ جزء 30</p>
                     </div>
                     <button class="form-btn-lg" onclick="window.open('https://docs.google.com/forms/', '_blank')">
-                        <i class="fas fa-pen-nib"></i> ????? ?????
+                        <i class="fas fa-pen-nib"></i> تسجيل اليوم
                     </button>
                 </div>
 
-                <!-- ???? 3 -->
+                <!-- حلقہ 3 -->
                 <div class="circle-card">
-                    <div class="circle-header"><div class="circle-icon"><i class="fas fa-star"></i></div><h4>?????? ???????</h4></div>
+                    <div class="circle-header"><div class="circle-icon"><i class="fas fa-star"></i></div><h4>الحلقة الثالثة</h4></div>
                     <div>
-                        <p><strong>??????:</strong> ????? ???????</p>
-                        <p><strong>?????:</strong> ????? - ???????? ??????</p>
+                        <p><strong>المعلم:</strong> الشيخ عبدالله</p>
+                        <p><strong>الوقت:</strong> العصر - المراجعة العامة</p>
                     </div>
                     <button class="form-btn-lg" onclick="window.open('https://docs.google.com/forms/', '_blank')">
-                        <i class="fas fa-pen-nib"></i> ????? ?????
+                        <i class="fas fa-pen-nib"></i> تسجيل اليوم
                     </button>
                 </div>
 
-                <!-- ???? 4 -->
+                <!-- حلقہ 4 -->
                 <div class="circle-card">
-                    <div class="circle-header"><div class="circle-icon"><i class="fas fa-graduation-cap"></i></div><h4>?????? ???????</h4></div>
+                    <div class="circle-header"><div class="circle-icon"><i class="fas fa-graduation-cap"></i></div><h4>الحلقة الرابعة</h4></div>
                     <div>
-                        <p><strong>??????:</strong> ??????? ????</p>
-                        <p><strong>?????:</strong> ?????? - ???????</p>
+                        <p><strong>المعلم:</strong> الأستاذ محمد</p>
+                        <p><strong>الوقت:</strong> العشاء - متقدمين</p>
                     </div>
                     <button class="form-btn-lg" onclick="window.open('https://docs.google.com/forms/', '_blank')">
-                        <i class="fas fa-pen-nib"></i> ????? ?????
+                        <i class="fas fa-pen-nib"></i> تسجيل اليوم
                     </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ?????? 5: ????? ??? -->
+    <!-- سلائیڈ 5: لائیو فیڈ -->
     <section>
         <div class="container" style="max-width: 800px;">
-            <h2 class="section-title">???????? ?????</h2>
+            <h2 class="section-title">المتابعة الحية</h2>
             <div class="feed-item present">
                 <img src="https://picsum.photos/seed/ahmed/60/60" alt="Student" class="feed-avatar">
                 <div class="feed-info">
-                    <div style="font-weight: bold;">???? ???</div>
-                    <div style="font-size: 1rem; color: #666;">??? ???? ????? ??????.</div>
+                    <div style="font-weight: bold;">أحمد علي</div>
+                    <div style="font-size: 1rem; color: #666;">حفظ سورة الكهف بإتقان.</div>
                 </div>
-                <span class="feed-status status-present">???? / ???</span>
+                <span class="feed-status status-present">حاضر / حفظ</span>
             </div>
             <div class="feed-item absent">
                 <img src="https://picsum.photos/seed/ali/60/60" alt="Student" class="feed-avatar">
                 <div class="feed-info">
-                    <div style="font-weight: bold;">??? ???</div>
-                    <div style="font-size: 1rem; color: #666;">?? ???? ?????.</div>
+                    <div style="font-weight: bold;">علي حسن</div>
+                    <div style="font-size: 1rem; color: #666;">لم يحضر اليوم.</div>
                 </div>
-                <span class="feed-status status-absent">????</span>
+                <span class="feed-status status-absent">غائب</span>
             </div>
             <div class="feed-item">
                 <img src="https://picsum.photos/seed/khalid/60/60" alt="Student" class="feed-avatar">
                 <div class="feed-info">
-                    <div style="font-weight: bold;">????</div>
-                    <div style="font-size: 1rem; color: #666;">??? ??????? 15 ?????.</div>
+                    <div style="font-weight: bold;">خالد</div>
+                    <div style="font-size: 1rem; color: #666;">وصل متأخراً 15 دقيقة.</div>
                 </div>
-                <span class="feed-status status-late">????</span>
+                <span class="feed-status status-late">تأخر</span>
             </div>
             <p style="text-align: center; margin-top: 40px; font-size: 1.1rem; color: #666; background: #eee; padding: 10px; border-radius: 10px;">
-                <i class="fas fa-mobile-alt"></i> ??? ??????? ??? Google Forms ????? ??????? ??? ????????.
+                <i class="fas fa-mobile-alt"></i> يتم التسجيل عبر Google Forms وتظهر النتائج هنا تلقائياً.
             </p>
         </div>
     </section>
