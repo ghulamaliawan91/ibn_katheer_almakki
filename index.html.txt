@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>???? ??? ???? - ??? ??????</title>
+    <!-- ???? ????? -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- ?????? -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #1e3a8a; /* ???? */
+            --secondary-color: #d97706; /* ????? */
+            --accent-color: #10b981; /* ??? */
+            --form-btn-color: #7c3aed; /* ????? - ???? ?? ??? */
+            --bg-color: #f8fafc;
+            --text-dark: #1f2937;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .logo { font-family: 'Amiri', serif; }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* ???? */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo { 
+            font-size: 1.8rem; 
+            color: var(--primary-color); 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            white-space: nowrap;
+        }
+        .logo i { color: var(--secondary-color); }
+
+        /* ??????? ?? ????? ?? ?????? */
+        .flag-img {
+            width: 35px; height: 35px; border-radius: 50%; border: 2px solid #eee;
+        }
+
+        .nav-center { display: flex; gap: 25px; font-size: 0.9rem; font-weight: 500; }
+
+        .insta-btn {
+            display: flex; align-items: center; gap: 8px;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white; padding: 8px 18px; border-radius: 50px; font-weight: bold;
+        }
+
+        .download-btn {
+            background-color: #2563eb; color: white; padding: 8px 18px; border-radius: 50px; font-weight: bold; cursor: pointer; border: none; display: flex; align-items: center; gap: 8px;
+        }
+
+        /* ????? */
+        section {
+            padding: 60px 0;
+            min-height: 80vh;
+            display: flex; flex-direction: column; justify-content: center;
+            page-break-after: always;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            display: inline-block;
+            align-self: center;
+            padding-bottom: 5px;
+        }
+
+        /* ???? */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), #2563eb);
+            color: var(--white);
+            text-align: center;
+        }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.5rem; opacity: 0.9; margin-bottom: 20px; }
+
+        /* ????? ?????? */
+        .network-stats {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 40px;
+        }
+        .stat-box {
+            background: var(--white); padding: 20px; border-radius: var(--radius);
+            box-shadow: var(--shadow); text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+        }
+        .stat-box i { font-size: 2rem; color: var(--primary-color); margin-bottom: 10px; }
+        .stat-number { font-size: 3rem; font-weight: bold; color: var(--secondary-color); font-family: 'Amiri', serif; }
+
+        .mosque-list {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px;
+        }
+        .mini-mosque-card {
+            background: var(--white); padding: 15px; border-radius: var(--radius);
+            text-align: center; border: 1px solid #e2e8f0; display: flex; flex-direction: column; justify-content: space-between; height: 100%;
+        }
+        .mini-mosque-card.active { border: 2px solid var(--secondary-color); background: #fffbeb; }
+
+        /* ???? ???? ??? ?? ?????? */
+        .form-btn-mini {
+            display: block; width: 100%; margin-top: 15px;
+            background-color: var(--form-btn-color); color: white;
+            padding: 8px 0; border-radius: 6px; font-size: 0.85rem; font-weight: bold;
+            text-align: center; transition: background 0.3s;
+        }
+        .form-btn-mini:hover { background-color: #6d28d9; }
+
+
+        /* ??? ???? */
+        .sheikh-wrapper {
+            display: flex; align-items: center; gap: 40px; justify-content: center;
+            background: #f8fafc; padding: 40px; border-radius: var(--radius);
+            border-right: 5px solid var(--secondary-color); box-shadow: var(--shadow);
+        }
+        .sheikh-img {
+            width: 200px; height: 200px; border-radius: 50%; object-fit: cover;
+            border: 4px solid var(--white); box-shadow: var(--shadow);
+        }
+        .sheikh-text { flex: 1; }
+        .sheikh-text h3 { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 20px; }
+        .roles-wrapper { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        .role-badge {
+            padding: 10px 20px; border-radius: 30px; font-size: 1.1rem; font-weight: bold;
+            display: inline-flex; align-items: center; gap: 10px;
+        }
+        .badge-incharge { background-color: #1e3a8a; color: white; }
+        .badge-imam { background-color: white; color: var(--primary-color); border: 1px solid var(--primary-color); }
+        .sheikh-desc { font-size: 1.4rem; color: #4b5563; line-height: 2; }
+
+        /* ???? */
+        .bahrain-mosque-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;
+        }
+        .circle-card {
+            background: var(--white); padding: 25px; border-radius: var(--radius);
+            box-shadow: var(--shadow); border-top: 5px solid var(--accent-color);
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .circle-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .circle-icon { width: 60px; height: 60px; background: #ecfdf5; color: var(--accent-color); display: flex; align-items: center; justify-content: center; border-radius: 10px; font-size: 2rem; }
+        .teacher-name { font-weight: bold; font-size: 1.2rem; }
+
+        /* ??? ???? ?? ??? ??? */
+        .form-btn-lg {
+            display: block; width: 100%; margin-top: 20px;
+            background-color: var(--form-btn-color); color: white;
+            padding: 12px 0; border-radius: 8px; font-size: 1.1rem; font-weight: bold;
+            text-align: center; border: none; cursor: pointer;
+        }
+        .form-btn-lg:hover { background-color: #6d28d9; }
+
+        /* ??? */
+        .feed-item {
+            background: var(--white); padding: 20px; margin-bottom: 15px; border-radius: 10px;
+            display: flex; align-items: center; border-right: 5px solid #eee;
+        }
+        .feed-item.present { border-right-color: var(--accent-color); }
+        .feed-item.absent { border-right-color: #ef4444; }
+        .feed-avatar { width: 60px; height: 60px; border-radius: 50%; margin-left: 20px; }
+        .feed-info { flex: 1; font-size: 1.2rem; }
+        .feed-status { font-size: 1rem; padding: 5px 12px; border-radius: 5px; font-weight: bold; }
+        .status-present { background: #dcfce7; color: #166534; }
+        .status-absent { background: #fee2e2; color: #991b1b; }
+        .status-late { background: #fef3c7; color: #92400e; }
+
+        /* ???? */
+        footer {
+            background: var(--text-dark); color: white; text-align: center; padding: 20px 0;
+            margin-top: auto; position: fixed; bottom: 0; width: 100%; z-index: 10;
+        }
+        .footer-content { padding: 10px 20px; background: rgba(30, 41, 59, 0.9); border-radius: 50px; display: inline-block; }
+
+        /* ????/?????? ?????? */
+        @media print {
+            body { background: white; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            header, footer, .download-btn, .insta-btn, .nav-center, .form-btn-mini, .form-btn-lg { display: none !important; }
+            section {
+                page-break-before: always;
+                page-break-inside: avoid;
+                min-height: 100vh;
+                padding: 40px;
+            }
+            .hero { background: var(--primary-color) !important; color: white !important; }
+            .sheikh-wrapper, .circle-card, .feed-item { box-shadow: none; border: 1px solid #ddd; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ???? -->
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <!-- ??????? ?? ????? -->
+                <img src="https://flagcdn.com/w40/pk.png" alt="Pakistan Flag" class="flag-img">
+                <i class="fas fa-quran"></i> ???? ??? ????
+            </div>
+            <nav class="nav-center">
+                <span>???? ??????</span>
+                <span>??????</span>
+            </nav>
+            <div style="display:flex; gap:10px;">
+                <a href="https://www.instagram.com/ibn_katheer_almakki/?hl=ar" target="_blank" class="insta-btn">
+                    <i class="fab fa-instagram"></i> ???????
+                </a>
+                <button onclick="window.print()" class="download-btn">
+                    <i class="fas fa-file-pdf"></i> Download
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ???? -->
+    <footer><div class="footer-content">???? ??? ???? - ????? ???????</div></footer>
+
+    <!-- ?????? 1: ???? -->
+    <section class="hero">
+        <div class="container">
+            <div style="margin-bottom: 30px;"><img src="https://flagcdn.com/w80/pk.png" alt="Pakistan" style="border:2px solid white; border-radius:50%;"></div>
+            <h1>???? ???? ?????? ?????? ??????</h1>
+            <p>?? ????? ??????? - ??? ????? ????? ????</p>
+            <div style="margin-top: 30px; font-size: 1.5rem; font-family: 'Tajawal', sans-serif;">
+                <i class="fab fa-instagram"></i> @ibn_katheer_almakki
+            </div>
+        </div>
+    </section>
+
+    <!-- ?????? 2: ?????? (????? ?? ????? ??? ???? ????) -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">?????? ?????? ??????</h2>
+            <div class="network-stats">
+                <div class="stat-box">
+                    <i class="fas fa-mosque"></i>
+                    <div class="stat-number">7</div>
+                    <p>????? ?????</p>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-quran"></i>
+                    <div class="stat-number">42</div>
+                    <p>???? (6 ??? ????)</p>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-user-graduate"></i>
+                    <div class="stat-number">42</div>
+                    <p>????? ?????</p>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-bottom: 20px; font-size: 1.2rem; color: var(--text-light);">??????? ????? ???????:</p>
+            <div class="mosque-list">
+                <!-- ???? 1 (?????) -->
+                <div class="mini-mosque-card active">
+                    <div>
+                        <i class="fas fa-star" style="color:var(--secondary-color)"></i><br>
+                        ???? ???? ?? ???
+                        <small>(?????? ???????)</small>
+                    </div>
+                    <!-- ???? ???? ?? ??? ???? ????? -->
+                    <a href="https://docs.google.com/forms/" target="_blank" class="form-btn-mini">
+                        <i class="fas fa-pen"></i> ????? ??? ??????
+                    </a>
+                </div>
+                
+                <!-- ???? 2 -->
+                <div class="mini-mosque-card">
+                    <div>???? 2</div>
+                    <a href="https://docs.google.com/forms/" target="_blank" class="form-btn-mini">?????</a>
+                </div>
+                <div class="mini-mosque-card">
+                    <div>???? 3</div>
+                    <a href="https://docs.google.com/forms/" target="_blank" class="form-btn-mini">?????</a>
+                </div>
+                <div class="mini-mosque-card">
+                    <div>???? 4</div>
+                    <a href="https://docs.google.com/forms/" target="_blank" class="form-btn-mini">?????</a>
+                </div>
+                <div class="mini-mosque-card">
+                    <div>???? 5</div>
+                    <a href="https://docs.google.com/forms/" target="_blank" class="form-btn-mini">?????</a>
+                </div>
+                <div class="mini-mosque-card">
+                    <div>???? 6</div>
+                    <a href="https://docs.google.com/forms/" target="_blank" class="form-btn-mini">?????</a>
+                </div>
+                <div class="mini-mosque-card">
+                    <div>???? 7</div>
+                    <a href="https://docs.google.com/forms/" target="_blank" class="form-btn-mini">?????</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ?????? 3: ??? ???? -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">?????? ?????</h2>
+            <div class="sheikh-wrapper">
+                <img src="https://picsum.photos/seed/sheikh/400/400" alt="????? ????" class="sheikh-img">
+                <div class="sheikh-text">
+                    <h3>????? ???? (???? ????)</h3>
+                    <div class="roles-wrapper">
+                        <span class="role-badge badge-incharge"><i class="fas fa-user-shield"></i> ?????? ?????</span>
+                        <span class="role-badge badge-imam"><i class="fas fa-mosque"></i> ???? ?????</span>
+                    </div>
+                    <p class="sheikh-desc">
+                        ?????? ?????? ???? ??? ????? ????? ????? ??? ???? ??? ???? ??????? ????????.<br>
+                        ???????? ??? ???? ??? ????? ??????? <strong>??????? ????????</strong> ?? ???? ???? ?? ???.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ?????? 4: ???? (????? ??? ?? ???? ????) -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">????? ???? ???? ?? ???</h2>
+            <p style="text-align: center; margin-bottom: 40px; font-size: 1.2rem;">??? ????? ??????? ????? ??????:</p>
+            
+            <div class="bahrain-mosque-grid">
+                <!-- ???? 1 -->
+                <div class="circle-card">
+                    <div class="circle-header"><div class="circle-icon"><i class="fas fa-sun"></i></div><h4>?????? ??????</h4></div>
+                    <div>
+                        <p><strong>??????:</strong> ????? ?????</p>
+                        <p><strong>?????:</strong> ????? - ????? ??????</p>
+                    </div>
+                    <!-- ???? ?? ????? ???? -->
+                    <button class="form-btn-lg" onclick="window.open('https://docs.google.com/forms/', '_blank')">
+                        <i class="fas fa-pen-nib"></i> ????? ?????
+                    </button>
+                </div>
+
+                <!-- ???? 2 -->
+                <div class="circle-card">
+                    <div class="circle-header"><div class="circle-icon"><i class="fas fa-moon"></i></div><h4>?????? ???????</h4></div>
+                    <div>
+                        <p><strong>??????:</strong> ??????? ???</p>
+                        <p><strong>?????:</strong> ?????? - ??? ??? 30</p>
+                    </div>
+                    <button class="form-btn-lg" onclick="window.open('https://docs.google.com/forms/', '_blank')">
+                        <i class="fas fa-pen-nib"></i> ????? ?????
+                    </button>
+                </div>
+
+                <!-- ???? 3 -->
+                <div class="circle-card">
+                    <div class="circle-header"><div class="circle-icon"><i class="fas fa-star"></i></div><h4>?????? ???????</h4></div>
+                    <div>
+                        <p><strong>??????:</strong> ????? ???????</p>
+                        <p><strong>?????:</strong> ????? - ???????? ??????</p>
+                    </div>
+                    <button class="form-btn-lg" onclick="window.open('https://docs.google.com/forms/', '_blank')">
+                        <i class="fas fa-pen-nib"></i> ????? ?????
+                    </button>
+                </div>
+
+                <!-- ???? 4 -->
+                <div class="circle-card">
+                    <div class="circle-header"><div class="circle-icon"><i class="fas fa-graduation-cap"></i></div><h4>?????? ???????</h4></div>
+                    <div>
+                        <p><strong>??????:</strong> ??????? ????</p>
+                        <p><strong>?????:</strong> ?????? - ???????</p>
+                    </div>
+                    <button class="form-btn-lg" onclick="window.open('https://docs.google.com/forms/', '_blank')">
+                        <i class="fas fa-pen-nib"></i> ????? ?????
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ?????? 5: ????? ??? -->
+    <section>
+        <div class="container" style="max-width: 800px;">
+            <h2 class="section-title">???????? ?????</h2>
+            <div class="feed-item present">
+                <img src="https://picsum.photos/seed/ahmed/60/60" alt="Student" class="feed-avatar">
+                <div class="feed-info">
+                    <div style="font-weight: bold;">???? ???</div>
+                    <div style="font-size: 1rem; color: #666;">??? ???? ????? ??????.</div>
+                </div>
+                <span class="feed-status status-present">???? / ???</span>
+            </div>
+            <div class="feed-item absent">
+                <img src="https://picsum.photos/seed/ali/60/60" alt="Student" class="feed-avatar">
+                <div class="feed-info">
+                    <div style="font-weight: bold;">??? ???</div>
+                    <div style="font-size: 1rem; color: #666;">?? ???? ?????.</div>
+                </div>
+                <span class="feed-status status-absent">????</span>
+            </div>
+            <div class="feed-item">
+                <img src="https://picsum.photos/seed/khalid/60/60" alt="Student" class="feed-avatar">
+                <div class="feed-info">
+                    <div style="font-weight: bold;">????</div>
+                    <div style="font-size: 1rem; color: #666;">??? ??????? 15 ?????.</div>
+                </div>
+                <span class="feed-status status-late">????</span>
+            </div>
+            <p style="text-align: center; margin-top: 40px; font-size: 1.1rem; color: #666; background: #eee; padding: 10px; border-radius: 10px;">
+                <i class="fas fa-mobile-alt"></i> ??? ??????? ??? Google Forms ????? ??????? ??? ????????.
+            </p>
+        </div>
+    </section>
+
+</body>
+</html>
